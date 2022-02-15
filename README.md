@@ -22,6 +22,13 @@ IN-GAME CONTROLS:
 > START to Pause
 > 
 > A to Quit
+> 
+>
+> In Game Over screen:
+> >
+> > START to Play Again
+> >
+> > SELECT to Return to Menu
 
 
 Download the game ROM in the releases section. Have fun testing! :3
