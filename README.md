@@ -22,9 +22,8 @@ IN-GAME CONTROLS:
 > START to Pause
 > 
 > A to Quit
-> 
->
-> In Game Over screen:
+
+> GAME OVER SCREEN:
 > >
 > > START to Play Again
 > >
