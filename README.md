@@ -23,11 +23,13 @@ IN-GAME CONTROLS:
 > 
 > A to Quit
 
-> GAME OVER SCREEN:
-> >
-> > START to Play Again
-> >
-> > SELECT to Return to Menu
+
+GAME OVER SCREEN:
+
+>
+> START to Play Again
+>
+> SELECT to Return to Menu
 
 
 Download the game ROM in the releases section. Have fun testing! :3
