@@ -9,14 +9,18 @@ Game has no sound, but contains animations, debug mode and an easter egg, you go
 MENU CONTROLS:
 
 > START to Enable/Disable Debug Mode
+> 
 > TAP to Play
 
 
 IN-GAME CONTROLS:
 
 > LEFT/RIGHT to Move
+> 
 > B to Shoot
+> 
 > START to Pause
+> 
 > A to Quit
 
 
