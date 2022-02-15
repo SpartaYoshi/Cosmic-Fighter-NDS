@@ -1,1 +1,0 @@
-loading.o: loading.s
