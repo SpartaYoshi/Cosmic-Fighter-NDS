@@ -25,16 +25,11 @@
 int state;							// Game state
 int countdown;						// Time left in-game
 
-
 cannon_t cannon;							// Cannon sprite
 alien_t aliens[TOTAL_ALIENS];				// Alien sprites (array)
 laser_t laser[3];							// Projectiles (array)
 laser_t enemy_laser[10];					// Enemy projectiles (array)
 expl_t explosionsp[5];						// Explosion sprites (array)
-
-
-
-
 
 bool invaded = false;						// Checks if player has been invaded yet
 
@@ -61,16 +56,7 @@ int reason = 0;						// Reason of gameover
 touchPosition screen_pos;
 
 
-/*
-sprite_t kcl_alien[TOTAL_ALIENS];	// Bottom left pixel of alien sprite (used for collision)
-
-sprite_t kcl_laser;				// Top left pixel of laser sprite (used for collision)
-	
-int pxalien = 0;						// alien collision pixels
-int pxlaser = 0;						// laser collision pixels
-*/
-
-
+// ##########################################################
 
 
 void bootupText(){	
@@ -84,7 +70,6 @@ void bootupText(){
     iprintf("\x1b[07;00H  : Zhan Xiang, Hai Yong     :  ");
     iprintf("\x1b[08;00H  +--------------------------+  ");
 }
-
 
 
 /* 
@@ -130,23 +115,15 @@ int main() {
 	 **/
     srand(time(NULL));	
 
-
-
-
+	// ##########################################################
 
 	// BOOTUP
 	bootupText();
-
-
 	state = MENU;	
 	interrupts_setting();
 	
-
-
-	
-	
 	// GAME
-	
+
 	while(1) {		
 		switch(state){
 
@@ -162,15 +139,12 @@ int main() {
 				
 				// EE
 				eeCheck();
-				
-				
+			
 				if (is_the_screen_touched())
 					state = PREINIT;
 				break;
 				
-				
 			case PREINIT:																		// Preinit (Cronometro)
-			
 				iprintf("\x1b[16;00H                                "); // press blinking text (start to restart)
 				iprintf("\x1b[17;00H                                "); // press blinking text (start to restart)
 				iprintf("\x1b[18;00H                                "); // press blinking text (select to exit)
@@ -200,20 +174,10 @@ int main() {
 				for (i = 30; i < 40; i++)
 					initAlien(i, var);
 				
-				
 				for (i = 0; i < 10; i++){
 					enemy_laser[i].active = false;
 					remove_enemy_projectile(i + 50, enemy_laser[i].x, enemy_laser[i].y);
 				}
-				
-				/*for (row = 0; row < 4; row++){												// Spawneo modo matriz (test)
-					for (i = 0; i < 10; i++){
-						aliens[i+10*row].x = 10 + 20*i + rand()%4;
-						aliens[i+10*row].y = 5 + 20*row + rand()%4;
-						display_crab_alien(i+10*row, aliens[i+10*row].x, aliens[i+10*row].y);
-					}
-				}
-				*/
 				
 				for(i = 0; i < 5; i++)
 					explosionsp[i].time = -1;
@@ -239,7 +203,6 @@ int main() {
 				
 				break;
 				
-				
 			case PAUSE:
 				// BACKGROUND 03 ANIMATION
 				clearScreen();
@@ -255,7 +218,6 @@ int main() {
 				resumeScreen();
 				ctanim = 495;
 				break;
-				
 				
 			case GAMEOVER:
 				iprintf("\x1b[20;00H  FINAL SCORE: %d           ", score);
@@ -281,12 +243,8 @@ int main() {
 			default:
 			break;
 		}
-		
 
-
-
-
-
+		// ##########################################################
 
 		// IN-GAME
 		if( (state != MENU) && (state != PAUSE) && (state != GAMEOVER) && (state != EE) ){
@@ -296,65 +254,15 @@ int main() {
 			moveRight();
 			cannonAnimation();
 			
-			
-			
-			
 			// BACKGROUND 02 ANIMATION
 			ctanim++; 
 				if(ctanim == 500){
 					bgAnim02();
 					ctanim = 0;
-				}
-				
-				
-
-			/*
-			// COLLISION
-			collided = false;
-			pxalien = 0;
-			pxlaser = 0;
-			
-			while (!collided && cntlaser < 5){
-				kcl_laser[cntlaser].x = laser[cntlaser].x + 5;
-				kcl_laser[cntlaser].y = laser[cntlaser].y + 3;
-			
-				while (!collided && i < TOTAL_ALIENS){
-					if (aliens[i].var == CRAB){
-						kcl_alien[i].x = aliens[i].x + 1;
-						kcl_alien[i].y = aliens[i].y + 12;
-					}
-					
-					
-					while (!collided && pxalien < 13){
-						while (!collided && pxlaser < 5){
-							if ((kcl_laser[cntlaser].x + pxlaser) == (kcl_alien[i].x + pxalien)){
-								collided = true;
-								remove_projectile(cntlaser, laser[cntlaser].x, laser[cntlaser].y);
-								if (aliens[i].var == CRAB){
-									remove_crab_alien(i, aliens[i].x, aliens[i].y);
-									score = score + 100;
-									dead_aliens++;
-									iprintf("\x1b[21;00H  BEEP BOOP                     ");
-								}
-							}
-							pxlaser++;
-						}
-						pxalien++;
-					}
-					i++;
-				}
-				cntlaser++;
-			}	
-			*/
-			
-			
-			
-			
+				}	
 		}
 		
-		
-		
-		
+		// ##########################################################
 		
 		// DEBUG ONLY: KEYPAD, STATE, SCREEN
 		if (debug){
@@ -384,20 +292,16 @@ int main() {
 				break;
 			} // switch(pressed_key_value())
 			
-			
 			// STATE
 			iprintf("\x1b[14;00H  STATE: %d                            ", state);
-			
 			
 			// DETECCION DE PRESION EN PANTALLA
 			touchRead(&screen_pos);   
 			iprintf("\x1b[12;00H  Screen: x = %d, y = %d    ", screen_pos.px, screen_pos.py);
 		}
 		
-		
+		// ##########################################################
 
-		
-		
 		// PUNTUACION Y TIEMPO
 		if ((state != MENU) && (state != GAMEOVER) && (state != EE) ){
 			iprintf("\x1b[20;00H  SCORE: %d                 ", score);
@@ -409,16 +313,11 @@ int main() {
 			iprintf("\x1b[23;00H                            ");
 		}
 
-
-
-
-	
-
     } // while
 } // main()
 
 
-
+// ##########################################################
 
 // CONTROLES
 
@@ -462,7 +361,6 @@ void moveRight() {
 } // void moveRight()
 
 
-
 // CANNON ANIMATION
 void cannonAnimation() {
 	cnanim_ct++;
@@ -483,18 +381,6 @@ void cannonAnimation() {
 		cnanim_dir = !cnanim_dir;
 	}
 }
-
-
-	
-
-
-
-// replantear codigo (while = timer_handler). añadir booleano al laser para ver si esta activo. hacer colisiones
-// el shoot() inicializa la posicion del laser y activa un misil si hay uno disponible
-// cambiar estado SHOOT. hacer colisiones en el TIMER tambien
-
-
-
 
 
 // BACKGROUND 01 ANIMATION
@@ -554,9 +440,6 @@ void bgAnim01(){
 } // void bganim02()
 
 
-
-
-
 // BACKGROUND 02 ANIMATION
 void bgAnim02(){
 	switch(frame02){
@@ -612,8 +495,6 @@ void bgAnim02(){
 			break;
 	}
 } // void bganim02()
-
-
 
 
 // BACKGROUND 03 ANIMATION
@@ -690,12 +571,6 @@ void bgAnimKirbo(){
 } // void bgAnimKirbo()
 
 
-
-
-
-	
-	
-	
 // ALIEN SPAWNING
 void initAlien(index, var){
 	aliens[index].var = var;
@@ -716,9 +591,6 @@ void initAlien(index, var){
 } // void initAlien(index)
 
 
-
-
-
 // GAME OVER
 void gameOver(endr){
 	clearText(ALL);
@@ -727,12 +599,6 @@ void gameOver(endr){
 	finaltime = 120 - countdown;
 	invaded = false;
 }
-
-
-
-
-
-
 
 
 // CLEAR SCREEN FROM SPRITES
@@ -759,9 +625,6 @@ void clearScreen() {
 }
 
 
-
-
-
 // RESUME SPRITES ON SCREEN
 void resumeScreen() {
 	display_laser_cannon(cannon.x, cannon.y);
@@ -781,7 +644,6 @@ void resumeScreen() {
 	for (i = 0; i < 10; i++)
 		display_enemy_projectile(i + 50, enemy_laser[i].x, enemy_laser[i].y);
 }
-
 
 
 // EE CHECK

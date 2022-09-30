@@ -4,7 +4,6 @@
  * backgrounds.h
  **********************************************************/
 
-
 extern void display_back01_f01();
 extern void display_back01_f02();
 extern void display_back01_f03();
@@ -42,9 +41,6 @@ extern void display_kirbo_f03();
 extern void display_kirbo_f05();
 extern void display_kirbo_f07();
 extern void display_kirbo_f09();
-
-
-
 
 extern void init_video();
 extern void init_background();

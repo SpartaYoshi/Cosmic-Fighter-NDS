@@ -45,8 +45,6 @@
      **/
 
 
-
-
 // CONTROLS
 #define A		0 
 #define B		1
@@ -62,8 +60,6 @@
 #define RIGHTB	31
 
 
-
-
 // GLOBAL VARIABLES
 extern bool debug;
 
@@ -75,9 +71,6 @@ extern int score;
 extern int code;
 
 	
-	
-	
-
 // STATES
 #define MENU		0
 #define PREINIT		1
@@ -126,13 +119,10 @@ typedef struct {
 #define TOTAL_ALIENS 	40
 
 
-
-
 // Alien variants
 #define CRAB 		0
 #define SQUID		1
 #define OCTOPUS		2
-
 
 
 // clearText() types
@@ -147,14 +137,11 @@ typedef struct {
 #define ENEMYSHOT   3
 
 
-
 extern cannon_t cannon;								// Cannon sprite
 extern alien_t aliens[TOTAL_ALIENS];				// Alien sprites (array)
 extern laser_t laser[3];							// Projectiles (array)
 extern laser_t enemy_laser[10];						// Enemy projectiles (array)
 extern expl_t explosionsp[5];				      		// Explosion sprites (array)
-
-
 
 
 #endif

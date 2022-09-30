@@ -15,7 +15,6 @@ int is_the_screen_touched() {
 } // is_the_screen_touched()
 
 
-
 int pressed_key_value() {
 	// TWO BUTTON CASES
 	if (!(KEYS_DAT & 0x0012)) return RIGHTB; 
@@ -31,10 +30,9 @@ int pressed_key_value() {
 	else if (!(KEYS_DAT & 0x0080)) return DOWN; 
 	else if (!(KEYS_DAT & 0x0100)) return R; 
 	else if (!(KEYS_DAT & 0x0200)) return L; 
-	// desarrollar para dos teclas a la vez
+
 	else return -1;
 } // pressed_key_value()
-
 
 
 void keypad_handler() {
@@ -54,9 +52,6 @@ void keypad_handler() {
 			
 		if ((state != MENU) && (state != PAUSE) && (state != GAMEOVER) && (state != EE))
 			state = SHOOT;		
-		
-		
-		
 		
 	} else if (pressed_key_value() == START) {
 		if (debug){
@@ -81,8 +76,7 @@ void keypad_handler() {
 			} else {
 				iprintf("\x1b[21;00H  DEBUG MODE: OFF            ");
 				debug = false;
-				clearText(DEBUG);
-				
+				clearText(DEBUG);	
 			}
 			
 			switch (code){
@@ -93,14 +87,8 @@ void keypad_handler() {
 					code = 0;
 					ctanim = 155;
 				break;
-			}		
-			
-		
+			}			
 		}
-		
-		
-		
-		
 		
 	} else if (pressed_key_value() == SELECT) {
 		if (debug){
@@ -120,12 +108,8 @@ void keypad_handler() {
 					code++;
 				break;
 			}		
-			
-		
-		
 	}
 } // keypad_handler()
-
 
 
 // CLEAR TEXT FROM UPPER SCREEN
@@ -167,7 +151,4 @@ void kirboText(){
 	iprintf("\x1b[07;00H                               ");
 	iprintf("\x1b[08;00H                               ");
 	iprintf("\x1b[09;00H                               ");
-}
-
-	
-	
+}	

@@ -2,9 +2,7 @@
  * timers.c
  **********************************************************/
 
-/* 
- * Añadir los includes que sean necesarios
- **/
+
 #include <nds.h>
 #include <stdio.h>
 #include "defines.h"
@@ -25,8 +23,6 @@ int ir = 0; 				// random iteration
 int iexp = 0; 				// explosion spawn iteration
 int ctexp = 0;				// explosion count for for's
 //int ctls = 0;				// cooldown time for laser
-
-
 
 
 
@@ -68,13 +64,10 @@ void timer_handler() {
 					iprintf("\x1b[17;00H 	 	< YOU ARE DEAD >        ");
 				iprintf("\x1b[18;00H                                ");
 				iprintf("\x1b[19;00H                                ");
-
-
 			}
 		}
 	} 
 
-	
 	switch(state){
 		case PREINIT:
 			countdown = 120;
@@ -101,10 +94,7 @@ void timer_handler() {
 			}
 			
 			state = IDLE;
-		break;
-			
-			
-			
+			break;
 			
 		case PAUSE:
 			break;
@@ -135,9 +125,6 @@ void timer_handler() {
 		else
 			alienClock(1);
 	
-		
-		
-		
 		// SHOOTING
 		for (movls = 0; movls < 3; movls++){
 			if (laser[movls].active){
@@ -175,8 +162,6 @@ void timer_handler() {
 				}
 			}
 		}
-		
-		
 		
 		// ALIEN RANDOMIZED LASER SPAWNING
 		for (ir = 0; ir < TOTAL_ALIENS; ir++){
@@ -220,8 +205,6 @@ void timer_handler() {
 			}
 		}
 		
-		
-		
 		// EXPLOSION TRIGGERED TIME
 		for (ctexp = 0; ctexp < 5; ctexp++){
 			if (explosionsp[ctexp].time >= 0)
@@ -233,11 +216,7 @@ void timer_handler() {
 			}
 		}
 	}
-
-	
-	
 } // timer_handler()
-
 
 
 // ALIEN MOVEMENT
@@ -293,7 +272,6 @@ void respawnAlien(index, var){
 }
 
 
-
 // DRAW EXPLOSION
 void explode(x, y) {
 	explosionsp[iexp].x = x;
@@ -305,11 +283,7 @@ void explode(x, y) {
 		iexp = 0;
 }
 	
-	
-	
-	
-	
-	
+
 /*
 // LASER SHOOTING (OLD CODE)
 void shoot(){
@@ -325,5 +299,3 @@ void shoot(){
 	remove_projectile(126, laser.x, laser.y);
 
 } // void shoot() */
-
-

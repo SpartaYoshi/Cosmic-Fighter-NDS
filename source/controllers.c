@@ -2,9 +2,6 @@
  * controllers.c
  **********************************************************/
 
-/* 
- * Añadir los includes que sean necesarios
- **/
 #include <nds.h>
 #include <stdio.h>
 #include "defines.h"
@@ -26,10 +23,6 @@ void enable_interrupts() {
 } // enable_interrupts()
 
 
-
-
-
-
 /* 
  * Programar los registros de control. Aquí es donde se configuran los 
  * registros de control de los periféricos.
@@ -44,11 +37,6 @@ void configure_control_registers() {
 } // configure_control_registers()
 
 
-
-
-
-
-
 /* 
  * Este procedimiento inicializa el vector de interrupciones para que 
  * el gestor de interrupciones sepa que rutina de atencion tiene que 
@@ -60,34 +48,14 @@ void define_interrupt_vector_table() {
 } // DefinirVectorInterrupciones()
 
 
-
-
-
-
-
-
-
-
 /* 
  * Inhibe las interrupciones. En el Controlador de Interrupciones
  **/
 void disable_interrupts() { 
-
 	IME = 0; 							// Disable interruption
-	
 	IE = IE & 0xFFFFEFF7;				// Disable bits: IRQ_KEYS, IRQ_TIMER0
-	
 	IME = 1; 							// Enable interruption
-
 } // disable_interrupts()
-
-
-
-
-
-
-
-
 
 
 void interrupts_setting() {
@@ -97,6 +65,3 @@ void interrupts_setting() {
   define_interrupt_vector_table();
  
 }  // interrupts_setting()
-
-
-

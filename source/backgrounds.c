@@ -10,9 +10,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/* 
- * Anadir aquí los includes para cada fondo [gfx]
- **/
 
 #include "back01.h"
 #include "back01_f01.h"
@@ -51,23 +48,10 @@
 #include "back03_f08.h"
 
 #include "kirbo1.h"
-
 #include "kirbo3.h"
-
 #include "kirbo5.h"
-
 #include "kirbo7.h"
-
 #include "kirbo9.h"
-
-
-
-
-
-
-
-
-
 
 
 /* 
@@ -165,8 +149,7 @@ void display_back01_f12() {
                      back01BitmapLen);          // Longitud (en bytes) generada automáticamente 
 }
 
-
-
+// ##########################################################
 
 void display_back02_f01() {
     dmaCopyHalfWords(DMA_CHANNEL,
@@ -176,7 +159,6 @@ void display_back02_f01() {
 					 
 }
 
-
 void display_back02_f02() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      back02_f02Bitmap,          // Variable generada automáticamente
@@ -184,7 +166,6 @@ void display_back02_f02() {
                      back01BitmapLen);          // Longitud (en bytes) generada automáticamente 
 					 
 }
-
 
 void display_back02_f03() {
     dmaCopyHalfWords(DMA_CHANNEL,
@@ -194,7 +175,6 @@ void display_back02_f03() {
 					 
 }
 
-
 void display_back02_f04() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      back02_f04Bitmap,          // Variable generada automáticamente
@@ -203,7 +183,6 @@ void display_back02_f04() {
 					 
 }
 
-
 void display_back02_f05() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      back02_f05Bitmap,          // Variable generada automáticamente
@@ -211,7 +190,6 @@ void display_back02_f05() {
                      back01BitmapLen);          // Longitud (en bytes) generada automáticamente 
 					 
 }
-
 
 void display_back02_f06() {
     dmaCopyHalfWords(DMA_CHANNEL,
@@ -229,7 +207,6 @@ void display_back02_f07() {
 					 
 }
 
-
 void display_back02_f08() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      back02_f08Bitmap,          // Variable generada automáticamente
@@ -237,7 +214,6 @@ void display_back02_f08() {
                      back01BitmapLen);          // Longitud (en bytes) generada automáticamente 
 					 
 }
-
 
 void display_back02_f09() {
     dmaCopyHalfWords(DMA_CHANNEL,
@@ -247,7 +223,6 @@ void display_back02_f09() {
 					 
 }
 
-
 void display_back02_f10() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      back02_f10Bitmap,          // Variable generada automáticamente
@@ -255,7 +230,6 @@ void display_back02_f10() {
                      back01BitmapLen);          // Longitud (en bytes) generada automáticamente 
 					 
 }
-
 
 void display_back02_f11() {
     dmaCopyHalfWords(DMA_CHANNEL,
@@ -265,7 +239,6 @@ void display_back02_f11() {
 					 
 }
 
-
 void display_back02_f12() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      back02_f12Bitmap,          // Variable generada automáticamente
@@ -274,6 +247,7 @@ void display_back02_f12() {
 					 
 }
 
+// ##########################################################
 
 void display_back03_f01() {
     dmaCopyHalfWords(DMA_CHANNEL,
@@ -283,7 +257,6 @@ void display_back03_f01() {
 					 
 }
 
-
 void display_back03_f02() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      back03_f02Bitmap,          // Variable generada automáticamente
@@ -292,7 +265,6 @@ void display_back03_f02() {
 					 
 }
 
-
 void display_back03_f03() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      back03_f03Bitmap,          // Variable generada automáticamente
@@ -300,7 +272,6 @@ void display_back03_f03() {
                      back01BitmapLen);          // Longitud (en bytes) generada automáticamente 
 					 
 }
-
 
 void display_back03_f04() {
     dmaCopyHalfWords(DMA_CHANNEL,
@@ -342,6 +313,7 @@ void display_back03_f08() {
 					 
 }
 
+// ##########################################################
 
 void display_kirbo_f01() {
     dmaCopyHalfWords(DMA_CHANNEL,
@@ -359,7 +331,6 @@ void display_kirbo_f03() {
 					 
 }
 
-
 void display_kirbo_f05() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      kirbo5Bitmap,              // Variable generada automáticamente
@@ -367,8 +338,6 @@ void display_kirbo_f05() {
                      back01BitmapLen);          // Longitud (en bytes) generada automáticamente 
 					 
 }
-
-
 
 void display_kirbo_f07() {
     dmaCopyHalfWords(DMA_CHANNEL,
@@ -378,9 +347,6 @@ void display_kirbo_f07() {
 					 
 }
 
-
-
-
 void display_kirbo_f09() {
     dmaCopyHalfWords(DMA_CHANNEL,
                      kirbo9Bitmap,              // Variable generada automáticamente
@@ -389,6 +355,8 @@ void display_kirbo_f09() {
 					 
 }
 
+
+// ##########################################################
 
 
 /* 
@@ -418,7 +386,6 @@ void init_video() {
         videoSetModeSub(MODE_5_2D | // Establecer el modo grafico 5
                     DISPLAY_BG3_ACTIVE); // Activar el fondo 3
 } // init_video()
-
 
 
 /* 
