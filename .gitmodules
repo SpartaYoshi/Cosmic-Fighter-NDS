@@ -1,0 +1,3 @@
+[submodule "libnds"]
+	path = libnds
+	url = git@github.com:devkitPro/libnds.git
